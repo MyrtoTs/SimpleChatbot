@@ -33,13 +33,41 @@ for intent in data['intents']:
 
 # Stemming
 words = [stemmer.stem(w.lower()) for w in words if w != "?"]
-print(f"\nStemmed words are: \n {words}\n" )
+# print(f"\nStemmed words are: \n {words}\n" )
 
 words = sorted(list(set(words)))
     # set => no duplicates
     # list => same type as before
     # sorted => on alphabetical order
 
-print(f"\n and after sort: \n {words}\n" )
+# print(f"\n and after sort: \n {words}\n" )
 
 labels = sorted(labels)
+
+training = []
+output = []
+
+out_empty = [0 for _ in range(len(labels))]
+
+for x, doc in enumerate(docs_x):
+    bag = []
+
+    wrds = [stemmer.stem(w.lower()) for w in doc]
+
+    for w in words:
+        if w in wrds:
+            bag.append(1)
+        else:
+            bag.append(0)
+
+    output_row = out_empty[:]
+    output_row[labels.index(docs_y[x])] = 1
+
+    training.append(bag)
+    output.append(output_row)
+
+training = numpy.array(training)
+output = numpy.array(output)
+
+print(f"bag of words training array : \n {training}\n")
+print(f"bag of words output array : \n {output}\n")
