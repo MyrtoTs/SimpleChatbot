@@ -28,4 +28,9 @@ vectorizer = CountVectorizer()
 X = vectorizer.fit_transform(docs_x)
 bag_of_words = X.toarray()
 
-print(f"\n Bag of words array : \n {bag_of_words}")
+Y = vectorizer.fit_transform(docs_y)
+bag_of_words_output = Y.toarray()
+
+with open('BOWvectorizer.txt', 'w') as f:
+    f.write(f"bag of words training array of type {type(bag_of_words)} of size {bag_of_words.shape} : \n {bag_of_words}\n")
+    f.write(f"bag of words output array of size {type(bag_of_words_output)}: \n {bag_of_words_output}\n")
