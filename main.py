@@ -66,9 +66,10 @@ for x, doc in enumerate(docs_x):
     training.append(bag)
     output.append(output_row)
 
-training = numpy.array(training)
-output = numpy.array(output)
+bag_of_words = numpy.array(training)
+bag_of_words_output = numpy.array(output)
 
-with open('BOWmanually.txt', 'w') as f:
-    f.write(f"bag of words training array : \n {training}\n")
-    f.write(f"bag of words output array : \n {output}\n")
+# with open('BOWmanually.txt', 'w') as f:
+#     f.write(f"bag of words training array of type {type(bag_of_words)} of size {bag_of_words.shape} : \n {bag_of_words}\n")
+#     f.write(f"bag of words output array of size {type(bag_of_words_output)}: \n {bag_of_words_output}\n")
+
