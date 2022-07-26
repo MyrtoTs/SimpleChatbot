@@ -87,11 +87,11 @@ model = tflearn.DNN(net)
 
 # Train model or load pretrained model
 
-try:
-    model.load("model/model.tflearn")
-except:
-    model.fit(bag_of_words, bag_of_words_output, n_epoch=1000, batch_size=8, show_metric=True)
-    model.save("model/model.tflearn")
+# try:
+#     model.load("model/model.tflearn")
+# except:
+#     model.fit(bag_of_words, bag_of_words_output, n_epoch=1000, batch_size=8, show_metric=True)
+#     model.save("model/model.tflearn")
 
 
 def bag_of_words(s, words):
