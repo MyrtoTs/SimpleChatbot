@@ -33,7 +33,6 @@ Y = output_vectorizer.fit_transform(docs_y)
 bag_of_words_output = (Y.toarray()).tolist()
 
 # Neural Network Design
-
 tensorflow.compat.v1.reset_default_graph()
 
 net = tflearn.input_data(shape=[None, len(bag_of_words[0])])
@@ -45,7 +44,6 @@ net = tflearn.regression(net)
 model = tflearn.DNN(net)
 
 # Neural Network Training
-
 model.fit(bag_of_words, bag_of_words_output, n_epoch=1000, batch_size=8, show_metric=True)
 
 # Deployment
